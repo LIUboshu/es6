@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        //遍历器（Iterator）就是这样一种机制。它是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署 Iterator 接口，就可以完成遍历操作（即依次处理该数据结构的所有成员）。
+
+        // Iterator 的作用有三个：
+        //     一是为各种数据结构，提供一个统一的、简便的访问接口；
+        //     二是使得数据结构的成员能够按某种次序排列；
+        //     三是 ES6 创造了一种新的遍历命令for...of循环，Iterator 接口主要供for...of消费。
+
+        // 原生具备 Iterator 接口的数据结构如下。
+        //     Array
+        //     函数的 arguments 对象
+        //     Set
+        //     Map
+        //     String
+        //     TypedArray
+        //     NodeList 对象
+
+        // Iterator接口,这里指对象的一个属性
+
+        // Iterator 的遍历过程是这样的。
+        //     （1）创建一个指针对象，指向当前数据结构的起始位置。也就是说，遍历器对象本质上，就是一个指针对象。
+        //     （2）第一次调用指针对象的next方法，可以将指针指向数据结构的第一个成员。
+        //     （3）接下来不断调用next方法，指针不断一直往后移动,直到指向最后一个成员。
+        //     （4）每调用next方法返回一个包含value和done属性对象。
+        const xiyou = ['唐僧','孙悟空','猪八戒','沙僧'];
+        // 使用for...of遍历数组  保存的是键值
+        for (const v of xiyou) {
+            console.log(v);
+        }
+        // for...in保存的是键名
+        for (const v in xiyou) {
+            console.log(v);
+        }
+        let iterator = xiyou[Symbol.iterator]();
+        console.log(iterator);// Array Iterator {}
+        console.log(iterator.next());// {value: "唐僧", done: false}
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());// {value: undefined, done: true}  done变成true说明遍历完成
+    </script>
+</html>

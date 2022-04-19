@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        // 可选操作符  ?.
+        function main(config){
+            const dbhost = config && config.ad && config.ad.host;
+            console.log(dbhost);// 192.157.235.1
+
+            const a = config?.ad?.host;
+            console.log(a);//可选操作符  ?.
+        }
+        main({
+            ad:{
+                host:"192.157.235.1",
+                username:"root"
+            },
+            cache:{
+                host:"127.0.03.1",
+                name:"啊哈哈"
+            }
+        })
+    </script>
+</html>

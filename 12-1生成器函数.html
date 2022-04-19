@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        // 生成器其实就是一个特殊的函数
+        // 进行异步变成
+        function * gen (){
+            console.log('hello generator');
+        }
+        let iterator = gen();
+        console.log(iterator);// 返回一个迭代器对象
+        iterator.next();// hello generator
+
+
+        // yield 函数代码的分隔符
+        function * gen2(){
+            yield '哈哈',
+            yield '呵呵',
+            yield '嘿嘿'
+        }
+        let it = gen2();
+        console.log(it.next());
+        console.log(it.next());
+        console.log(it.next());
+        console.log(it.next()); // {value: undefined, done: true}
+
+        for (const v of gen2()) {
+            console.log(v);
+        }
+    </script>
+</html>

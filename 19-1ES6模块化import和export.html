@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+	<!-- 第一种引入方式 -->
+    <script type="module">
+        // 模块化
+        //     模块化是指将一个大的程序文件,拆分成许多小的文件,然后将小文件组合起来
+        // 模块化的好处
+        //     1.防止命名冲突
+        //     2.代码复用
+        //     3.高维护性
+        // ES6之前的模块化规范
+        //     conmmonJS       -->     nodejs  
+        //     AMD             -->     requireJS
+        //     cmd             -->     seaJS
+        
+        // ES6模块化的语法
+        //     模块功能主要由两个命令构成  export 和 import
+        //     export 命令用于规定模块的对外接口
+        //     import 命令用于输入其他模块提供的功能
+		
+		// 1.通用导入方式
+		/* 
+        // 引入 19-2m1.js 模块内容   scripr标签里面 type="module"
+        import * as m1 from "./src/js/19-2m1.js";
+        console.log(m1);// 分别暴露
+        import * as m2 from "./src/js/19-2m2.js";
+        
+        console.log(m2);// 统一暴露
+        console.log(m2.school);//这样去拿变量
+
+		import * as m3 from "./src/js/19-2m3.js";
+		console.log(m3);// 默认暴露
+		m3.default.change();
+		*/
+	   
+		// 2.解构赋值形式 
+         
+
+		/* 
+		import {school,teach} from "./src/js/19-2m1.js";
+		// 这里两个school重名 as 后面跟别名
+		import {school as xuexiao,findJob} from "./src/js/19-2m2.js";
+		//--------导入默认暴露---
+		import {default as m3} from "./src/js/19-2m3.js";
+		console.log(school);//清华
+		console.log(teach);//teach (){console.log("教你改变世界");}
+		console.log(xuexiao);
+		console.log(findJob);
+		console.log(m3);
+		*/
+	   
+	    // 3.简便形式   针对默认暴露
+		/* 
+		import m3 from "./src/js/19-2m3.js";
+		console.log(m3);
+		*/
+    </script>
+	
+	<!-- 第二种引入方式 -->
+    <!-- 引入入口文件 app -->
+    <!-- type="module"  设置类型为module  必须加 -->
+	<script src="./src/js/19-2app.js" type="module"></script>
+</html>

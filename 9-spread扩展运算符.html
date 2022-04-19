@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div></div>
+        <div></div>
+        <div></div>
+    </body>
+    <script>
+        // ... 扩展运算符能将 数组 转换为逗号分隔的参数序列
+
+        const ab = ['哈哈','呵呵','嘿嘿'];
+        function pn(){
+            console.log(arguments);//0:"哈哈", 1:"呵呵", 2:"嘿嘿"
+        }
+        pn(...ab);// pn('哈哈','呵呵','嘿嘿')
+
+        //1.数组的合并
+        const ren = ['钢铁侠','绿巨人','孙悟空'];
+        const cd = ['哈哈','呵呵','嘿嘿'];
+        const hebing = [...ren,...cd];
+        console.log(hebing);//["钢铁侠", "绿巨人", "孙悟空", "哈哈", "呵呵", "嘿嘿"]
+
+        //2.数组的克隆    属于浅拷贝
+        const aa = ['aa','bb','cc'];
+        const bb = [...aa];
+        console.log(bb);// ["aa", "bb", "cc"]
+
+        //3.将伪数组转换为真正的数组
+        const divs = document.querySelectorAll("div");
+        const divArr = [...divs];
+        console.log(divArr);//[div, div, div]
+    </script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        // Object.fromEntries  将二维数组转换为对象
+        
+        // 二维数组
+        const result = Object.fromEntries([
+            ['name','哈哈哈'],
+            ['xueke','英语,数学,语文']
+        ])    
+        console.log(result);// {name: "哈哈哈", xueke: "英语,数学,语文"}
+       
+
+        /* 
+        let m = new Map();
+        m.set('name','呵呵呵');
+        const result = Object.fromEntries(m);
+        console.log(result);// {name: "呵呵呵"}
+         */
+
+         // ES8 Object.entries  将对象转换二维数组
+         const arr = Object.entries({
+             name:"嘿嘿嘿"
+         })
+         console.log(arr);// [Array(2)]
+    </script>
+</html>

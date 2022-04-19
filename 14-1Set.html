@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        // es6 提供了新的数据结构 Set(集合) ,它类似于数组,但成员的值都是唯一的,集合实现了iterator接口,所以可以使用[扩展运算符]和for...of进项遍历.
+        // Set 实例的属性和方法
+        //     Set 结构的实例有以下属性。
+
+        //     constructor：构造函数，默认就是Set函数。
+        //     size：返回Set实例的成员总数。
+        //     Set 实例的方法分为两大类：操作方法（用于操作数据）和遍历方法（用于遍历成员）。下面先介绍四个操作方法。
+
+        //     add(value)：添加某个值，返回 Set 结构本身。
+        //     delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。
+        //     has(value)：返回一个布尔值，表示该值是否为Set的成员。
+        //     clear()：清除所有成员，没有返回值。
+
+        let s = new Set();
+        console.log(s, typeof s);   //Set(0) {} "object"
+
+        let s2 = new Set(['你好','他好','我好','她好','它好','你好']);
+        console.log(s2);// Set(5) {"你好", "他好", "我好", "她好", "它好"}
+        // 元素个数
+        console.log(s2.size);// 5
+        // 添加新元素
+        console.log(s2.add('哈哈'));
+        // 删除元素
+        console.log(s2.delete("哈哈"));// true
+        // 检测
+        console.log(s2.has("你好"));//true
+        // 清空
+        /* s2.clear();
+        console.log(s2); */
+
+        for (let v of s2) {
+            console.log(v);
+        }
+    </script>
+</html>

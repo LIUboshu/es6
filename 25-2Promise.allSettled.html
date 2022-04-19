@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        // Promise.allSettled()方法接受一组 Promise 实例作为参数，包装成一个新的 Promise 实例。只有等到所有这些参数实例都返回结果，不管是fulfilled还是rejected，包装实例才会结束。
+        // 返回的状态始终是成功的,执行的对象是每个Promise对象执行的结果
+
+        //声明两个promise对象
+        const p1 = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                // resolve("商品数据-1");
+                reject("出错了");
+            },1000)
+        })
+        const p2 = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve("商品数据-2");
+            },1000)
+        })
+        // 调用allSettled
+        const result = Promise.allSettled([p1,p2]);
+        console.log(result);
+
+
+        // all   一个出错   状态就是错误   俩个全部成功就是成功
+        const re = Promise.all([p1,p2]);
+        console.log(re);
+    </script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button id="btn">点击</button>
+    </body>
+    <script type="module">
+		// 静态引入
+        // import * as mi from "./25-5hello.js"
+		
+		
+		
+        const btn = document.getElementById("btn");
+        btn.onclick = function(){
+			// 静态引入
+            // mi.hello();
+			
+			// 动态引入
+			import("./25-5hello.js").then(module=>{
+				module.hello();
+			})
+        }
+        
+    </script>
+</html>

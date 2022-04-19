@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+		// 声明变量
+		let a;
+		let b,c,d;
+		console.log(d);//undefined
+		let e = 100;
+		let f = 521, g = "iloveyou", h = [];
+		console.log(h);//[]
+		
+		// 1.变量不能重复声明
+		// 重复声明报错   Identifier 'star' has already been declared
+			/*
+				let star = "钢铁侠";
+				let star = "孙悟空";
+			*/
+		   
+		   
+		// 2.块级作用域		es5有 全局、函数、eval(严格模式)
+			// var 没有块级作用域
+			/*
+				// if else while for
+				{
+					let girl = "周扬青";
+					// let是块级作用域,只能在代码块有效,外面读取不到
+				}
+				console.log(girl);//girl is not defined
+			*/
+		   
+		   
+		// 3.不存在变量提升
+			/*
+			console.log(song);//undefined   不会报错   变量提升的现象
+			var song = "恋爱达人";
+			*/
+		   
+		   /*
+			   console.log(song);//报错   Cannot access 'song' before initialization   不允许在变量声明之前使用这个变量
+			   let song = "恋爱达人";
+		   */
+		   
+		// 4.不影响作用域链
+		{
+			let school = "清华";
+			function fn(){
+				console.log(school);// 函数作用域下面没有school  所以会往上找
+				// 块级作用域,不影响作用域链的效果
+			}
+			fn();
+		}
+	</script>
+</html>

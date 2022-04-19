@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: aqua;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="ad"></div>
+	</body>
+	<script type="text/javascript">
+		// 需求一 点击div 2s后变成粉色
+		
+		let ad = document.getElementById("ad");
+		/* ad.onclick = function(){
+			console.log(this);// 这里this是ad
+			let _this = this;
+			setTimeout(function(){
+				//console.log(this);// 这里的this是window
+				_this.style.backgroundColor = "pink";
+			},2000)
+		} */
+		
+		// 箭头函数 this 是静态的.this始终指向函数声明所在作用域下的this的值
+		/* ad.onclick = function(){
+			console.log(this);// 这里this是ad
+			setTimeout(()=>{
+				console.log(this);// 这里this是ad
+				this.style.backgroundColor = "pink";
+			},2000)
+		} */
+		
+		ad.addEventListener("click",function(){
+			console.log(this);// 这里this是ad
+			setTimeout(()=>{
+				this.style.backgroundColor = "pink";
+			},2000);
+		})
+		
+		
+		// 需求二,从数组中返回函数偶数的元素
+		const arr = [1,4,7,0,67,100,34,8];
+		/* 
+		const result = arr.filter(function(item){
+			if(item % 2 === 0){
+				return true;
+			}else{
+				return false;
+			}
+			
+			// return item > 18;//[67, 100, 34]
+		})
+		 */
+		
+		// 简写
+		const result = arr.filter(item => item % 2 === 0);
+		
+		
+		
+		console.log(result);//[4, 0, 100, 34, 8]
+		
+		// 箭头函数适合与this无关的回调   定时器  数组的方法回调
+		// 箭头函数不适合与this 有关的回调   事件回调,对象的方法
+		
+		let a = {
+			name:"清华",
+			getName: () => {
+				console.log(this);//window
+				this.name;
+			}
+		}
+		a.getName();
+	</script>
+</html>

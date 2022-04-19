@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        // Number.EPSILON   属性的值接近于 2.220446049250313e-16
+        // Number.EPSILON实际上是 JavaScript 能够表示的最小精度。误差如果小于这个值，就可以认为已经没有意义了，即不存在误差了。
+        function equal(a,b){
+            if(Math.abs(a-b) < Number.EPSILON){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        console.log(equal(0.1+0.2,0.3));// true
+        console.log(0.1 + 0.2 === 0.3);// false
+        // ES6 提供了二进制和八进制数值的新的写法，分别用前缀0b（或0B）和0o（或0O）表示。
+
+        // Number.isFinite()用来检查一个数值是否为有限的（finite），即不是Infinity。
+        console.log(Number.isFinite(100));// true
+        console.log(Number.isFinite(100/0));// false
+        console.log(Number.isFinite(Infinity));// false
+
+        // Number.isNaN()用来检查一个值是否为NaN。
+        console.log(Number.isNaN(123));// false
+        
+        //ES6 将全局方法parseInt()和parseFloat()，移植到Number对象上面，行为完全保持不变
+        console.log(Number.parseInt("5211314love"));//5211314
+        console.log(Number.parseFloat("3.1415926神奇"));//3.1415926
+        console.log(Number.parseInt === parseInt); // true
+        console.log(Number.parseFloat === parseFloat); // true
+
+        // Number.isInteger()用来判断一个数值是否为整数。
+        console.log(Number.isInteger(123));// true
+        console.log(Number.isInteger(12.5));// false
+
+        // Math.trunc方法用于去除一个数的小数部分，返回整数部分。
+        console.log(Math.trunc(3.6));// 3
+        console.log(Math.trunc(-4.32));// -4
+
+        // Math.sign方法用来判断一个数到底是正数、负数、还是零。对于非数值，会先将其转换为数值。
+        console.log(Math.sign(100));// 1  正数
+        console.log(Math.sign(0));  // 0
+        console.log(Math.sign(-200)); // -1 负数
+    </script>
+</html>   

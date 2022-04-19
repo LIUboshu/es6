@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        class Person{
+            // 公有属性
+            name;
+            // 私有属性
+            #age;
+            #weight;
+            constructor(name,age,weight){
+                this.name = name;
+                this.#age = age;
+                this.#weight = weight;
+            }
+            a(){  // 通过方法  在外面调用私有属性
+                console.log(girl.name);
+                console.log(girl.#age);
+                console.log(girl.#weight);
+            }
+        }
+        let girl = new Person("小红",18,'45kg');
+        console.log(girl);
+        // console.log(girl.name);
+        // console.log(girl.#age);
+        // console.log(girl.#weight);
+
+        girl.a();  // 通过方法调用私有属性
+    </script>
+</html>

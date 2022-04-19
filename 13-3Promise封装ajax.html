@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        // 接口地址:https://api.asilu.com/geo/
+
+        const p = new Promise((resolve,reject)=>{
+            // 1.创建ajax对象
+            const xhr = new XMLHttpRequest();
+            // 2.调用open
+            //  第一个参数:请求方式  get opst
+            //  第二个参数:url
+            //  第三个参数:是否异步
+            //     true:异步
+            //     false:同步
+            xhr.open("get","https://api.asilu.com/geo/",true);
+            //xhr.open("get","../php/php1.php",true);
+            // 3. 调用send    发送请求
+            xhr.send();
+            // 4.等待数据响应
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4){
+                    if(xhr.status >= 200 && xhr.status < 300){
+                        // 表示成功
+                        resolve(xhr.response);
+                    }else{
+                        // 如果失败
+                        reject(xhr.status);
+                    }
+                }
+            }
+        })
+        // 通过then方法指定回调
+        p.then(function(value){
+            // 成功的形参叫做value
+            console.log(value);// 数据库中的用户数据
+        },function(reason){
+            // 失败的形参叫做reason
+            console.error(reason);//数据读取错误
+        });
+    </script>
+</html>

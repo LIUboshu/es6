@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        /* 
+            // es5   构造函数   继承
+            // 手机
+            function Phone(brand,price){
+                this.brand = brand;
+                this.price = price;
+            }
+            Phone.prototype.call = function(){
+                console.log("我可以打电话");
+            }
+            // 智能手机
+            function SmartPhone(brand,price,color,size){
+                Phone.call(this,brand,price);
+                this.color = color,
+                this.size = size
+            }
+            // 设置子类的方法
+            SmartPhone.prototype = new Phone;
+            SmartPhone.prototype.constructor = SmartPhone;// 校正    可以不写
+            //声明子类的方法
+            SmartPhone.prototype.photo = function(){
+                console.log("我可以拍照")
+            }
+            SmartPhone.prototype.playGame = function(){
+                console.log("我可以玩游戏")
+            }
+            const chuizi = new SmartPhone('锤子',2499,'黑色','5.5inch');
+            console.log(chuizi);
+        */
+
+        // es6的继承
+        class Phone{
+            // 构造方法
+            constructor(brand,price){
+                this.beand = brand;
+                this.price = price;
+            }
+            // 父类的成员属性
+            call(){
+                console.log("我可以打电话");
+            }
+        }
+        // 声明子类  继承父类的属性和方法 extends
+        class SmartPhone extends Phone{
+            // 构造方法
+            constructor(brand,price,color,size){
+                // 调用父类的构造方法来做初始化
+                // 必须写super() 调用父类的构造器  必须在最开始调用super
+                super(brand,price); // Phone.call(this,brand,price);
+                this.color = color;
+                this.size = size;
+            }
+            // 类中你所定义的方法已经在局部开好了严格模式  this是undefined
+            photo(){
+                console.log("我可以拍照")
+            }
+            playGame(){
+                console.log("我可以玩游戏")
+            }            
+            // 子类对父类方法的重写
+            call(){
+                super.call();
+                console.log("我可以视频通话");
+            }
+        }
+        const xiaomi = new SmartPhone("小米",1999,"白色",'5.5inch');
+        console.log(xiaomi);
+        xiaomi.call();
+        xiaomi.photo();
+        xiaomi.playGame();
+
+        /* 
+            总结:
+                1.类中的构造器不是必须写的,要对实例进行一些初始化的操作,如添加指定属性时才写
+                2.如果A类继承了B类,且a类中写了构造器,那么A类构造器中的super是必须要调用的
+                3.类中所定义的方法,都放在类的原型对象上的,供实例使用
+        
+        */
+    </script>
+</html>

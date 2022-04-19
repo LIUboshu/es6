@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        /* Rest 参数与spread扩展运算符在es6中已经用到,不过es6中只针对于数组
+        在es9中为对象提供了像数组一样的rest参数和扩展运算符 */
+
+        /* function connect({host,port,...user}){
+            console.log(host);
+            console.log(port);
+            console.log(user);
+        }
+        connect({
+            host:"127.0.0.1",
+            port:3306,
+            username:"root",
+            passworld:"rood",
+            type:"master"
+        }) */
+
+        const xyj = {
+            x : "西游记"
+        }
+        const hlm = {
+            h : "红楼梦"
+        }
+        const sg = {
+            s : "三国"
+        }
+        const shz = {
+            xh : "水浒传"
+        }
+        const mingzhu  = {...xyj,...hlm,...sg,...shz};// 对象的合并
+        console.log(mingzhu);// {x: "西游记", h: "红楼梦", s: "三国", xh: "水浒传"}
+    </script>
+</html>    

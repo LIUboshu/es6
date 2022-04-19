@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        // es5 通过构造函数  实例化对象
+        
+            // 手机
+            function Phone(brand,price){
+                this.brand = brand;
+                this.price = price;
+            }
+            // 添加方法
+            Phone.prototype.call = function(){
+                console.log("我可以打电话")
+            }
+            // 实例对象
+            var Huawei = new Phone('华为',5999);
+            Huawei.call();
+            console.log(Huawei);
+       
+
+        // class  es6
+        class Shouji {
+            // 构造方法  名字不能修改
+            constructor(brabd,price){
+                // 构造器中的this是谁?   this是类的实例对象
+                this.beand = brabd;
+                this.price = price;
+            }
+            // 方法必须使用该语法,不能使用es的对象完整形式
+            // call方法放在了哪里?  类的原型对象上,供实例使用
+            call(){
+                console.log("我也会打电话")
+            }
+        }
+        let onePlus = new Shouji("1+",1999);
+        onePlus.call();
+        console.log(onePlus);
+        console.log(onePlus.beand);
+    </script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        // flat() 将多维数组转化为低维数组
+        const arr = [1,2,3,4,[5,6,7,8]];
+        console.log(arr.flat());//  [1, 2, 3, 4, 5, 6, 7, 8]
+
+        const arr2 = [1,21,3,[4,5,6,[5,9,6]]];// 三维数组  将为二维数组
+        console.log(arr2.flat()); // [1, 21, 3, 4, 5, 6, Array(3)]
+        // 参数为深度  是一个数字
+        console.log(arr2.flat(2));// 降为数组  (9) [1, 21, 3, 4, 5, 6, 5, 9, 6]
+
+        const arr3 = [1,2,3,4];
+        const aa = arr3.map(function(item){
+            console.log(item);  // 1  2  3 4 
+           return item * 10;
+        });
+        console.log(aa);
+
+        const bb = arr3.map(item => [item*10]);
+        console.log(bb);// (4) [Array(1), Array(1), Array(1), Array(1)]0: [10]1: [20]2: [30]3: [40]
+
+        // 创建 Symbol      ES2019 提供了一个实例属性description，直接返回 Symbol 的描述。
+        let s = Symbol("钢铁侠");
+        console.log(s.description);//钢铁侠
+    </script>
+</html>
